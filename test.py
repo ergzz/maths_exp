@@ -25,7 +25,7 @@ def valide(i, j): #regarde si case dans le plateau et pas déja visitée
 
 def possiblePath(i,j):
     #test qui return true si arrivée atteint
-    if next_x == x_ar and next_y == y_ar:
+    if i == x_ar and j == y_ar:
         return True
 
     for k in range(len(mvmt_x)+1): #longueur de la liste des différents mouvements
