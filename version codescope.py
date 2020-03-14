@@ -1,4 +1,6 @@
 N = 8
+x_ = 1
+y_ = 2
 
 def is_valid(i, j, sol):
   if (i>=1 and i<=N and j>=1 and j<=N):
@@ -7,7 +9,7 @@ def is_valid(i, j, sol):
   return False
 
 def knight_tour(sol, i, j, step_count, x_move, y_move):
-  if (step_count == N*N):
+  if i == x_ and j == y_ : 
     return True
 
   for k in range(0, 8):
