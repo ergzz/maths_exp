@@ -1,6 +1,3 @@
-import sys 
-sys.setrecursionlimit(5000) #problème de récursion même en augmentant? 
-
 '''Choisir la taille du plateau'''
 N = int(input("Taille du plateau:"))
 '''Choisir la case de départ'''
@@ -34,7 +31,7 @@ def possiblePath(i,j):
             if possiblePath(next_x,next_y): #recursion
                 #print(next_x, next_y)
                 return True 
-    return False
+        return False
 
 #def startTour(): visualisation du tour à faire 
 
