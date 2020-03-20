@@ -3,7 +3,7 @@ experimental maths project
 
 This code is meant to be used for the experimental maths project of Summer Semester 2020.
 
-The goal of the project is to determine if a knight, starting from a point (x,y),  can reach another point (x',y') on an arbitrary chess board (starting with a n*n board) with (a,b) moves (not necessarily (1,2)).
+The goal of the project is to determine if a knight, starting from a point (x,y),  can reach another point (x',y') on an arbitrary rectangle chess board with (a,b) moves (not necessarily (1,2)).
 
 We also want the knight to perform as few moves as possible. 
 
