@@ -2,7 +2,8 @@ import sys
 sys.setrecursionlimit(2000)
 
 '''Choisir la taille du plateau'''
-N = int(input("Taille du plateau:"))
+N1 = int(input("Largeur du plateau:"))
+N2 = int(input("Hauteur du plateau:"))
 '''Choisir la case de départ'''
 x = int(input("x:"))
 y = int(input("y:"))
@@ -17,7 +18,7 @@ visit = [] #liste vide pour ajouter cases déja visitées
 steps = 0
 
 def valide(i, j): #regarde si case dans le plateau et pas déja visitée
-    if ((i>=1) and (i<=N) and (j>=1) and j<=N): 
+    if ((i>=1) and (i<=N1) and (j>=1) and j<=N2): 
         if not (i,j) in visit: 
             return True
     return False
