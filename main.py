@@ -8,8 +8,6 @@ y = int(input("y:"))
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
 
-mvmt_x = [1, 1, -1, -1, 2, 2, -2, -2]
-mvmt_y = [2, -2, 2, -2, 1, -1, 1, -1]
 
 visit = [] #liste vide pour ajouter cases déja visitées
 board = []
@@ -20,14 +18,16 @@ for i in range(N2):
 def valide(i, j): #regarde si case dans le plateau et pas déja visitée
     if ((i>=0) and (i<=N1) and (j>=0) and j<=N2): #numérotation commence à 0 
         if not (i,j) in visit: 
-            if board[i][j]=="x":
+            #if board[i][j]=="x":
                 return True
     return False
 
 def possiblePath(i,j,steps):    
-    board[x][y]=0
+    #board[x][y]=0
+    mvmt_x = [1, 1, -1, -1, 2, 2, -2, -2]
+    mvmt_y = [2, -2, 2, -2, 1, -1, 1, -1]
     if i == x_ar and j == y_ar:
-        solution(board)
+        #solution(board)
         print(steps)
         print(visit)
         return True
@@ -38,11 +38,12 @@ def possiblePath(i,j,steps):
         if valide(next_x, next_y):
             steps+=1
             visit.append((mvmt_x[k],mvmt_y[k]))
-            board[next_x][next_y]=steps
+            #board[next_x][next_y]=steps
             if (possiblePath(next_x,next_y,steps)): #recursion
-                board[next_x][next_y]=steps
-                #return True
-            board[next_x][next_y]="x"
+                #board[next_x][next_y]=steps
+                return True 
+            #board[next_x][next_y]="x"
+            next_x,next_y=x,y
             #add backtracking: returns to the previous case 
     return False
 
