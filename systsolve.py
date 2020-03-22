@@ -1,5 +1,5 @@
-#using pseudo inverse: leads to the shortest solution 
-import numpy
+#using pseudo inverse: leads to the shortest solution, not useful in our case
+import numpy as np
 
 x = int(input("x départ:"))
 y = int(input("y départ:"))
@@ -7,13 +7,15 @@ y = int(input("y départ:"))
 x_ar = int(input("x départ:"))
 y_ar = int(input("y départ:"))
 
-a = numpy.array([[1,1, -1, -1, 2, 2, -2, -2], [2, -2, 2, -2, 1, -1, 1, -1]]) # lets define <a>
+a = np.array([[1,1, -1, -1, 2, 2, -2, -2], [2, -2, 2, -2, 1, -1, 1, -1]]) # lets define <a>
 
-b = numpy.array([x_ar-x,y_ar-y])
+b = np.array([x_ar-x,y_ar-y])
 
-sol = numpy.linalg.pinv(a).dot(b)
+sol = np.linalg.pinv(a).dot(b)
 
-A = numpy.linalg.pinv(a)
-coefs = A.dot(b)
-print(coefs)
 print(sol)
+
+a2 = np.array([1,1,2,2],[2,-2,1,-1])
+b2 = np.array([0,1])
+x2 = np.linalg.solve(a1,b1)
+print(x2)
