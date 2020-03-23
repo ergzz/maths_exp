@@ -8,50 +8,52 @@ y = int(input("y:"))
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
 
+steps=0
+visit = [[False]*N2 for _ in range(N1)] #liste vide pour ajouter cases déja visitées
 
-visit = [] #liste vide pour ajouter cases déja visitées
 board = []
 for i in range(N2):
     a = ["x"]*N1
     board.append(a)
 
-def valide(i, j): #regarde si case dans le plateau et pas déja visitée
-    if ((i>=0) and (i<=N1) and (j>=0) and j<=N2): #numérotation commence à 0 
-        if not (i,j) in visit: 
-            #if board[i][j]=="x":
-                return True
+def valide(x, y): #regarde si case dans le plateau et pas déja visitée
+    if x>=0 and x<N1 and y>=0 and y<N2 and (not visit[x][y]): #numérotation commence à 0 
+        return True
     return False
 
-def possiblePath(i,j,steps):    
-    #board[x][y]=0
-    mvmt_x = [1, 1, -1, -1, 2, 2, -2, -2]
-    mvmt_y = [2, -2, 2, -2, 1, -1, 1, -1]
-    if i == x_ar and j == y_ar:
-        #solution(board)
-        print(steps)
-        print(visit)
-        return True
+def possiblePath(x,y):  
+    visit = [[False]*N2 for _ in range(N1)]   
+    sol=[]
+    Q=[]
+    Q.append((x,y,0))
+    visit[x][y]=True
+    board[x][y]=0
+    mvmt_x = [-1, -2, -2, -1, 1, 2, 2, 1]
+    mvmt_y = [-2, -1, 1, 2, -2, -1, 1, 2]
+    while len(Q)!=0:
+        x,y,steps = Q.pop(0)
+        if x == x_ar and y == y_ar:
+            solution(board)
+            print(Q)
+            print(steps)
+            print(sol)
+            return True
 
-    for k in range(len(mvmt_x)): #longueur de la liste des différents mouvements
-        next_x = i + mvmt_x[k]
-        next_y = j + mvmt_y[k] #test mouvement pour chaque 
-        if valide(next_x, next_y):
-            steps+=1
-            visit.append((mvmt_x[k],mvmt_y[k]))
-            #board[next_x][next_y]=steps
-            if (possiblePath(next_x,next_y,steps)): #recursion
-                #board[next_x][next_y]=steps
-                return True 
-            #board[next_x][next_y]="x"
-            next_x,next_y=x,y
-            #add backtracking: returns to the previous case 
+        for k in range(8): #longueur de la liste des différents mouvements
+            next_x = x + mvmt_x[k]
+            next_y = y + mvmt_y[k] #test mouvement pour chaque 
+            if valide(next_x, next_y):
+                sol.append((mvmt_x[k],mvmt_y[k]))
+                visit[next_x][next_y]=True
+                Q.append((next_x, next_y,steps+1))
+                board[next_x][next_y]=steps
     return False
 
 def solution(board): #visualisation 
-    for i in range(N1):
-        for j in range(N2):
-            print(board[i][j], end = '')
+    for x in range(N1):
+        for y in range(N2):
+            print(board[x][y],"|", end = '')
         print()
 
-print(possiblePath(x,y,0))
+print(possiblePath(x,y))
             

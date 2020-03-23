@@ -18,7 +18,7 @@ def valid(x, y):
         
 def knight(x,y):
     visited = [[False]*N2 for _ in range(N1)]
-    x, y = x-1, y-1
+    sol = []
     Q = []
     Q.append((x, y, 0))
     visited[x][y] = True
@@ -28,11 +28,13 @@ def knight(x,y):
         x, y, min_moves = Q.pop(0)
         #print(x, y, min_moves)
         if x == x_ar and y == y_ar:
+            print(sol)
             return min_moves
         for k in range(8):
             next_x = x+x_move[k]
             next_y = y+y_move[k]
             if valid(next_x, next_y):
+                sol.append((next_x,next_y))
                 visited[next_x][next_y] = True
                 Q.append((next_x, next_y, min_moves+1))
     return -1
