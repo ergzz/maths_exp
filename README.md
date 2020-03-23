@@ -9,4 +9,4 @@ We also want the knight to perform as few moves as possible.
 
 Finally, we'd like to visualize the moves of the knight.
 
-In this algorithm, we're using a backtracking approach, derived from the problem of the knight tour. 
+In this algorithm, we're using a breadth first search approach, derived from the problem of the knight tour. 
