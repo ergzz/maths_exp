@@ -8,52 +8,48 @@ y = int(input("y:"))
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
 
-steps=0
-visit = [[False]*N2 for _ in range(N1)] #liste vide pour ajouter cases déja visitées
+min_moves=0
+visited = [[False]*N2 for _ in range(N1)]
+board = [["x"]*N1 for i in range(N2)]
 
-board = []
-for i in range(N2):
-    a = ["x"]*N1
-    board.append(a)
+board[x][y]=0
 
-def valide(x, y): #regarde si case dans le plateau et pas déja visitée
-    if x>=0 and x<N1 and y>=0 and y<N2 and (not visit[x][y]): #numérotation commence à 0 
+def valid(x, y):
+    if  x>=0 and x<N1 and y>=0 and y<N2 and (not visited[x][y]):
         return True
     return False
-
-def possiblePath(x,y):  
-    visit = [[False]*N2 for _ in range(N1)]   
-    sol=[]
-    Q=[]
-    Q.append((x,y,0))
-    visit[x][y]=True
-    board[x][y]=0
-    mvmt_x = [-1, -2, -2, -1, 1, 2, 2, 1]
-    mvmt_y = [-2, -1, 1, 2, -2, -1, 1, 2]
+        
+def knight(x,y):
+    visited = [[False]*N2 for _ in range(N1)]
+    sol = []
+    Q = []
+    Q.append((x, y, 0))
+    visited[x][y] = True
+    
+    x_move = [-1, -2, -2, -1, 1, 2, 2, 1]
+    y_move = [-2, -1, 1, 2, -2, -1, 1, 2]
     while len(Q)!=0:
-        x,y,steps = Q.pop(0)
+        x, y, min_moves = Q.pop(0)
+        #print(x, y, min_moves)
         if x == x_ar and y == y_ar:
+            board[x_ar][y_ar]=min_moves
             solution(board)
-            print(Q)
-            print(steps)
-            print(sol)
-            return True
+            #print(sol)
+            #print(Q)
+            return min_moves
+        for k in range(8):
+            next_x = x+x_move[k]
+            next_y = y+y_move[k]
+            if valid(next_x, next_y):
+                sol.append((x_move[k],y_move[k]))
+                visited[next_x][next_y] = True
+                Q.append((next_x, next_y, min_moves+1))
+    return -1
 
-        for k in range(8): #longueur de la liste des différents mouvements
-            next_x = x + mvmt_x[k]
-            next_y = y + mvmt_y[k] #test mouvement pour chaque 
-            if valide(next_x, next_y):
-                sol.append((mvmt_x[k],mvmt_y[k]))
-                visit[next_x][next_y]=True
-                Q.append((next_x, next_y,steps+1))
-                board[next_x][next_y]=steps
-    return False
-
-def solution(board): #visualisation 
-    for x in range(N1):
-        for y in range(N2):
-            print(board[x][y],"|", end = '')
+def solution(board):
+    for y in range(N2):
+        for x in range(N1):
+            print(board[x][y],"|", end='')
         print()
 
-print(possiblePath(x,y))
-            
+print(knight(x,y))
