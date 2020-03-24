@@ -1,5 +1,5 @@
 from timeit import default_timer
-
+"""Version avec cavalier mouvement (a,b)"""
 print("ATTENTION: la numérotation commence à 0")
 
 print("Choisir la taille du plateau")
@@ -14,7 +14,9 @@ print("Choisir la case que l'on veut atteindre")
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
 
-
+print("Choisir la taille du mouvement du cavalier")
+a = int(input("a:"))
+b = int(input("b:"))
 
 min_moves=0 #initialise nombre de mouvements
 visited = [[False]*N2 for _ in range(N1)] #aucune case n'est visitée au début
@@ -32,12 +34,13 @@ def knight(i,j):
     Q.append((i, j, 0))
     visited[i][j] = True #marque première case visitée comme vraie
    
-    x_move = [-1, -2, -2, -1, 1, 2, 2, 1] #liste des mouvements dans directions x et y
-    y_move = [-2, -1, 1, 2, -2, -1, 1, 2]
+    x_move = [-a, -b, -b, -a, a, b, b, a] #liste des mouvements dans directions x et y
+    y_move = [-b, -a, a, b, -b, -a, a, b]
     
     while len(Q)!=0: #début du Breadth-First Search: continue tant que la longueur de queue est diff de 0
         i, j, min_moves = Q.pop(0) #enleve elément d'indice 0
         if i == x_ar and j == y_ar: #teste si on est arrivés à la position voulue
+            sol.append((x_ar,y_ar))
             board[x_ar][y_ar]=min_moves #visualisation: nombre minimal de mouvements sur la case d'arrivée
             board[x][y]=0 #0 sur la case de départ
             solution(board) 

@@ -38,12 +38,12 @@ def knight(i,j):
     while len(Q)!=0: #début du Breadth-First Search: continue tant que la longueur de queue est diff de 0
         i, j, min_moves = Q.pop(0) #enleve elément d'indice 0
         if i == x_ar and j == y_ar: #teste si on est arrivés à la position voulue
+            sol.append((x_ar,y_ar))
             board[x_ar][y_ar]=min_moves #visualisation: nombre minimal de mouvements sur la case d'arrivée
             board[x][y]=0 #0 sur la case de départ
             solution(board) 
             sol = list(dict.fromkeys(sol)) #enlève les doubles dans la liste de solution en la transformant en dict puis à nouveau en liste: montre toutes les cases testées
             print(sol)
-            #print(Q)
             print("Le nombre minimal de mouvements est:")
             return min_moves
         for k in range(8): #boucle *8 car longueur du nb de mouvements possibles
