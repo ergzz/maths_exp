@@ -1,12 +1,20 @@
-'''Choisir la taille du plateau'''
+from timeit import default_timer
+
+print("ATTENTION: la numérotation commence à 0")
+
+print("Choisir la taille du plateau")
 N1 = int(input("Largeur du plateau:"))
 N2 = int(input("Hauteur du plateau:"))
-'''Choisir la case de départ'''
+
+print("Choisir la case de départ")
 x = int(input("x:"))
 y = int(input("y:"))
-'''Choisir la case que l'on veut atteindre'''
+
+print("Choisir la case que l'on veut atteindre")
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
+
+start=default_timer()
 
 min_moves=0
 visited = [[False]*N2 for _ in range(N1)]
@@ -35,6 +43,7 @@ def knight(i,j):
             solution(board)
             #print(sol)
             #print(Q)
+            print("Le nombre minimal de mouvements est:")
             return min_moves
         for k in range(8):
             next_x = i+x_move[k]
@@ -43,7 +52,6 @@ def knight(i,j):
                 sol.append((x_move[k],y_move[k]))
                 visited[next_x][next_y] = True
                 Q.append((next_x, next_y, min_moves+1))
-                board[next_x][next_y]=min_moves+1
     return -1
 
 def solution(board):
@@ -53,3 +61,5 @@ def solution(board):
         print()
 
 print(knight(x,y))
+end = default_timer()
+print("Le temps mis par le programme est:", end-start,"s")
