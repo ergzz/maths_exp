@@ -11,10 +11,10 @@ y = int(input("y:"))
 x_ar = int(input("x à atteindre:"))
 y_ar = int(input("y à atteindre:"))
 
-#board = [["x"]*N1 for i in range(N2)]
 steps = 0
 visited = [[False]*N2 for _ in range(N1)]
 sol=[]
+board = [["x"]*N1 for i in range(N2)]
 
 def valide(i, j): #regarde si case dans le plateau et pas déja visitée
     if ((i>=0) and (i<N1) and (j>=0) and j<N2) and (not visited[i][j]): 
@@ -26,9 +26,10 @@ def possiblePath(i,j,steps):
     Q.append((i,j,steps))
     mvmt_x= [-1, -2, -2, -1, 1, 2, 2, 1]
     mvmt_y = [-2, -1, 1, 2, -2, -1, 1, 2]  
-    #board[x][y]=0
     if i == x_ar and j == y_ar:
-        #solution(board)
+        board[x_ar][y_ar]=steps #visualisation: nombre minimal de mouvements sur la case d'arrivée
+        board[x][y]=0 #0 sur la case de départ
+        solution(board)
         print(Q)
         print(steps)
         return True
@@ -50,8 +51,9 @@ def possiblePath(i,j,steps):
 
 def solution(board): #visualisation 
     for j in range(N2):
-        print(board[i][j], end = '')
-    print()
+        for i in range(N1):
+            print(board[i][j],'|', end = '')
+        print()
 
 start = default_timer()
 print(possiblePath(x,y,0))

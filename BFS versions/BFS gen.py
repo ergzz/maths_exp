@@ -64,6 +64,8 @@ def solution(board): #visualisation du plateau + arrivée et départ
             print(board[i][j],"|", end='')
         print()
 
+#problème avec echiquier rectangulaire
+
 start=default_timer() #mesure temps mis par l'algo: timeit serait meilleur? 
 print(knight(x,y))
 end = default_timer()
