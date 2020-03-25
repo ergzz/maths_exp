@@ -9,4 +9,6 @@ We also want the knight to perform as few moves as possible.
 
 Finally, we'd like to visualize the moves of the knight.
 
-In this algorithm, we're using a breadth first search approach, derived from the problem of the knight tour. 
+BFS versions : uses Breadth-First search to find shortest path (version with a regular knight + version with arbitrary (a,b)-knight).
+
+DFS version : uses Depth-First search to find shortest path (not correct yet, should be more efficient than BFS for more complex cases).
