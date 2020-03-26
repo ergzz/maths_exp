@@ -44,8 +44,8 @@ def knight(i,j):
             board[x_ar][y_ar]=min_moves #visualisation: nombre minimal de mouvements sur la case d'arrivée
             board[x][y]=0 #0 sur la case de départ
             solution(board) 
-            sol = list(dict.fromkeys(sol)) #enlève les doubles dans la liste de solution en la transformant en dict puis à nouveau en liste: montre toutes les cases testées
-            print(sol)
+            #sol = list(dict.fromkeys(sol)) #enlève les doubles dans la liste de solution en la transformant en dict puis à nouveau en liste: montre toutes les cases testées
+            #print(sol)
             #print(Q)
             print("Le nombre minimal de mouvements est:")
             return min_moves

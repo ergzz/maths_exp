@@ -13,7 +13,7 @@ y_ar = int(input("y à atteindre:"))
 
 steps = 0
 visited = [[False]*N2 for _ in range(N1)]
-sol=[]
+#sol=[]
 board = [["x"]*N1 for i in range(N2)]
 
 def valide(i, j): #regarde si case dans le plateau et pas déja visitée
@@ -22,31 +22,30 @@ def valide(i, j): #regarde si case dans le plateau et pas déja visitée
     return False
 
 def possiblePath(i,j,steps):  
-    Q = []
-    Q.append((i,j,steps))
+    visited[i][j]=True
+    #Q = []
+    #Q.append((i,j,steps))
     mvmt_x= [-1, -2, -2, -1, 1, 2, 2, 1]
     mvmt_y = [-2, -1, 1, 2, -2, -1, 1, 2]  
     if i == x_ar and j == y_ar:
-        board[x_ar][y_ar]=steps #visualisation: nombre minimal de mouvements sur la case d'arrivée
+        board[x_ar][y_ar]=steps #visualisation: nombre de mouvements qu'il teste avant d'atteindre l'arrivée
         board[x][y]=0 #0 sur la case de départ
-        solution(board)
-        print(Q)
-        print(steps)
+        #solution(board)
+        #print(Q)
+        #print(steps)
         return True
-    while len(Q)!=0:
-        i,j,steps = Q.pop(0)
-        for k in range(0,8): #longueur de la liste des différents mouvements
-            next_x = i + mvmt_x[k]
-            next_y = j + mvmt_y[k] #test mouvement pour chaque 
-            if valide(next_x, next_y):
-                visited[next_x][next_y]=steps 
-                sol.append((mvmt_x[k],mvmt_y[k]))
-                Q.append((next_x,next_y, steps+1))
-                if possiblePath(next_x,next_y,steps+1): #recursion
-                    return True 
-                visited[next_x][next_y]=-1;
-        return False
-    return False  
+
+    for k in range(0,8): #longueur de la liste des différents mouvements
+        next_x = i + mvmt_x[k]
+        next_y = j + mvmt_y[k] #test mouvement pour chaque 
+        if valide(next_x, next_y):
+            #sol.append((mvmt_x[k],mvmt_y[k]))
+            #Q.append((next_x,next_y, steps+1))
+            if possiblePath(next_x,next_y,steps+1): #recursion
+                return True 
+            visited[next_x][next_y]=-1; #backtracking
+    return False
+ 
 
 
 def solution(board): #visualisation 
@@ -59,4 +58,4 @@ start = default_timer()
 print(possiblePath(x,y,0))
 end = default_timer()
 
-print(end-start)
+print("Le temps mis par le programme est:", end-start,"s")
