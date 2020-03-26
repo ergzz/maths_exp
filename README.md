@@ -11,4 +11,4 @@ Finally, we'd like to visualize the moves of the knight.
 
 BFS versions : uses Breadth-First search to find shortest path (version with a regular knight + version with arbitrary (a,b)-knight).
 
-DFS version : uses Depth-First search to find shortest path (not correct yet, should be more efficient than BFS for more complex cases).
+DFS versions : uses Depth-First search to find out if coordinates reachable or not (version with a regular knight + version with arbitrary (a,b)-knight).
