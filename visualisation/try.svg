@@ -22,6 +22,20 @@ height="810" viewBox="-.05 -.05 8.1 8.1">
     begin="1s"
     dur="1s"
     />
+    <animateTransform attributeName="transform"
+    type="translate"
+    from="1 2"
+    to="3 2"
+    begin="2s"
+    dur="1s"
+    />
+    <animateTransform attributeName="transform"
+    type="translate"
+    from="3 2"
+    to="3 3"
+    begin="3s"
+    dur="1s"
+    />
 </g>
 
 
