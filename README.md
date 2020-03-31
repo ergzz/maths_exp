@@ -12,3 +12,5 @@ Finally, we'd like to visualize the moves of the knight.
 BFS versions : uses Breadth-First search to find shortest path (version with a regular knight + version with arbitrary (a,b)-knight).
 
 DFS versions : uses Depth-First search to find out if coordinates reachable or not (version with a regular knight + version with arbitrary (a,b)-knight).
+
+Visualisation: create animated SVG files then convert them online as .gif images.
