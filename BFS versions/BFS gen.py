@@ -20,14 +20,14 @@ b = int(input("b:"))
 
 min_moves=0 #initialise nombre de mouvements
 visited = [[False]*N2 for _ in range(N1)] #aucune case n'est visitée au début
-board = [["x"]*N1 for i in range(N2)] #crée un plateau pour visualiser résultat final 
+board = [["x"]*N1 for _ in range(N2)] #crée un plateau pour visualiser résultat final 
 
 def valid(i, j):
     if  i>=0 and i<N1 and j>=0 and j<N2 and (not visited[i][j]): #verifie si la case est dans le plateau + si elle n'a pas été déja visitée
         return True
     return False
         
-def knight(i,j):
+def shortest(i,j):
     sol = [] #liste de solutions vide: cases testées 
     sol.append((i,j)) #ajoute position de départ dans la liste
     Q = [] #queue pour utiliser BFS 
@@ -64,10 +64,10 @@ def solution(board): #visualisation du plateau + arrivée et départ
             print(board[i][j],"|", end='')
         print()
 
-#problème avec echiquier rectangulaire
+#problème avec echiquier rectangulaire pour visualiser 
 
 start=default_timer() #mesure temps mis par l'algo: timeit serait meilleur? 
-print(knight(x,y))
+print(shortest(x,y))
 end = default_timer()
 
 print("Le temps mis par le programme est:", end-start,"s")

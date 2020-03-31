@@ -18,16 +18,14 @@ print("Choisir la taille du mouvement du cavalier")
 a = int(input("a:"))
 b = int(input("b:"))
 
-min_moves=0 #initialise nombre de mouvements
 visited = [[False]*N2 for _ in range(N1)] #aucune case n'est visitée au début
-
 
 def valid(i, j):
     if  i>=0 and i<N1 and j>=0 and j<N2 and (not visited[i][j]): #verifie si la case est dans le plateau + si elle n'a pas été déja visitée
         return True
     return False
         
-def knight(i,j):
+def shortest(i,j):
     Q = [] #queue pour utiliser BFS 
     Q.append((i, j, 0))
     visited[i][j] = True #marque première case visitée comme vraie
@@ -49,7 +47,7 @@ def knight(i,j):
     return -1 #rend -1 si impossible à atteindre
 
 start=default_timer() #mesure temps mis par l'algo: timeit serait meilleur? 
-print(knight(x,y))
+print(shortest(x,y))
 end = default_timer()
 
 print("Le temps mis par le programme est:", end-start,"s")
