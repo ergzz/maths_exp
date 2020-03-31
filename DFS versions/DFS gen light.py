@@ -42,7 +42,7 @@ def possiblePath(i,j):
             if possiblePath(next_x,next_y): #recursion
                 return True 
             visited[next_x][next_y]=False; #backtracking
-    return False
+    return False     
 
 start = default_timer()
 print(possiblePath(x,y))
