@@ -7,7 +7,7 @@ height="810" viewBox="-.05 -.05 8.1 8.1">
 0V8h1V0zm2,0V8h1V0z"/>
 
 <g id="knight">
-    <circle cx=".5" cy=".5" r=".35" fill="red"/>  
+    <circle cx=".5" cy=".5" r=".35" fill="blue"/>  
     <animateTransform attributeName="transform"
     type="translate"
     from="0 0"
@@ -20,23 +20,24 @@ height="810" viewBox="-.05 -.05 8.1 8.1">
     from="0 2"
     to="1 2"
     begin="1s"
-    dur="1s"
+    dur="0.5s"
     />
     <animateTransform attributeName="transform"
     type="translate"
     from="1 2"
     to="3 2"
-    begin="2s"
+    begin="1.5s"
     dur="1s"
     />
     <animateTransform attributeName="transform"
     type="translate"
     from="3 2"
     to="3 3"
-    begin="3s"
+    begin="2.5s"
     dur="1s"
     />
 </g>
+
 
 
 
