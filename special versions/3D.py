@@ -23,7 +23,6 @@ b = int(input("b:"))
 c = int(input("c:"))
 
 visited = [[[False]*N3 for _ in range(N2)]for _ in range(N1)] #aucune case n'est visitée au début
-L = []
 
 def valid(i, j, h):
     if  i>=0 and i<N1 and j>=0 and j<N2 and  h>=0 and h<N3 and (not visited[i][j][h]): #verifie si la case est dans le plateau + si elle n'a pas été déja visitée
