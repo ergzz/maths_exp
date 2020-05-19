@@ -18,4 +18,6 @@ Visualisation: create animated SVG files then convert them online as .gif images
 We also want to consider "special" versions of chess: 
 - what would it be like if instead of a board we play chess in a cube with a knight performing (a,b,c)-moves? (3D.py)
 - what if when we reach the edge of the board, instead of the movement being impossible we just teleport on the other side of the board, like in the famous "snake" game? (snake.py)
-- what if some squares of the chessboard did not exist, or if the board was not rectangle? (shapes.py)
+- what if some squares of the chessboard did not exist, or if the board was not rectangle? (carré4.py, 2carré2.py, etc.)
+
+Inspiration: in said folder, programs that inspired what approach to use for these problems. 
