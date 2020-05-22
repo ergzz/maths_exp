@@ -3,8 +3,8 @@ from timeit import default_timer
 print("ATTENTION: la numérotation commence à 0")
 
 print("Choisir la taille du plateau")
-N1 = 8
-N2 = 8
+N1 = 9
+N2 = 9
 
 print("Choisir la case de départ")
 x = int(input("x:"))
@@ -19,11 +19,13 @@ a = int(input("a:"))
 b = int(input("b:"))
 
 visited = [[False]*N2 for _ in range(N1)] #aucune case n'est visitée au début
-#créer la forme: 2 carrés manquant de taille 2x2 sur un plateau 8x8
-visited[2][2]=True; visited[2][3]=True
-visited[3][2]=True; visited[3][3]=True
-visited[4][4]=True; visited[4][5]= True
-visited[5][4]=True; visited[5][5]= True
+#créer la forme:coeur
+visited[0][8]=True;visited[1][8]=True;visited[3][8]=True;visited[4][8]=True;visited[5][8]=True;visited[7][8]=True;visited[8][8]=True
+visited[0][7]=True;visited[4][7]=True;visited[8][7]=True
+visited[0][3]=True;visited[8][3]=True
+visited[0][2]=True;visited[1][2]=True;visited[7][2]=True;visited[8][2]=True
+visited[0][1]=True;visited[1][1]=True;visited[2][1]=True;visited[6][1]=True;visited[7][1]=True;visited[8][1]=True
+visited[0][0]=True;visited[1][0]=True;visited[2][0]=True;visited[3][0]=True;visited[5][0]=True;visited[6][0]=True;visited[7][0]=True;visited[8][0]=True
 
 def valid(i, j):
     if  i>=0 and i<N1 and j>=0 and j<N2 and (not visited[i][j]): #verifie si la case est dans le plateau + si elle n'a pas été déja visitée

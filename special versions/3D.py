@@ -3,14 +3,14 @@ from timeit import default_timer
 print("ATTENTION: la numérotation commence à 0")
 
 print("Choisir la taille du cube")
-N1 = int(input("Largeur du cube:"))
-N2 = int(input("Hauteur du cube:"))
-N3 = int(input("Profondeur du cube:"))
+N1 = int(input("Largeur:"))
+N2 = int(input("Longueur:"))
+N3 = int(input("Profondeur:"))
 
 print("Choisir la case de départ")
-x = int(input("x:"))
-y = int(input("y:"))
-z = int(input("z:"))
+x = int(input("x de départ"))
+y = int(input("y de départ"))
+z = int(input("z de départ"))
 
 print("Choisir la case que l'on veut atteindre")
 x_ar = int(input("x à atteindre:"))

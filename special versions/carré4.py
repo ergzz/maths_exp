@@ -3,8 +3,8 @@ from timeit import default_timer
 print("ATTENTION: la numérotation commence à 0")
 
 print("Choisir la taille du plateau")
-N1 = int(input("Largeur du plateau:"))
-N2 = int(input("Hauteur du plateau:"))
+N1 = 8
+N2 = 8
 
 print("Choisir la case de départ")
 x = int(input("x:"))
