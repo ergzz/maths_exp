@@ -1,5 +1,5 @@
 # maths_exp
-experimental maths project
+EML project on a variation of the knight's tour problem
 
 This code is meant to be used for the experimental maths project of Summer Semester 2020.
 
